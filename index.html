@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Velvina — Coming Soon</title>
+<meta name="description" content="Velvina. Something soft is coming.">
+<style>@font-face{font-family:Gambetta;font-style:normal;src:url(Gambetta-Regular.woff2) format("woff2")}
+@font-face{font-family:Gambetta;font-style:italic;src:url(Gambetta-Italic.woff2) format("woff2")}
+@font-face{font-family:Switzer;src:url(Switzer-Regular.woff2) format("woff2")}
+:root{--maroon:#7A1622;--blush:#D4879A;--paper:#F3EFF0;--petal:#F2C6D0;--peach:#F6D6CC}
+*{margin:0;padding:0;box-sizing:border-box}html,body{height:100%}
+body{background:var(--paper);color:var(--maroon);font-family:Switzer,system-ui,sans-serif;overflow:hidden}
+.h{font-family:Gambetta,serif;font-style:italic;font-weight:400;text-transform:uppercase;line-height:.95}
+.logo{aspect-ratio:1188/366;background:var(--maroon);-webkit-mask:url(logo.png) center/contain no-repeat;mask:url(logo.png) center/contain no-repeat}
+form{display:flex;width:min(400px,100%)}
+input{flex:1;min-width:0;outline:0;background:rgba(243,239,240,.6);padding:0 16px;font:inherit;font-size:15px;color:inherit;border:1px solid var(--blush);border-right:0}
+input::placeholder{color:var(--maroon);opacity:.5}
+button{border:0;background:var(--blush);color:var(--paper);padding:14px 22px;font-family:Gambetta,serif;font-style:italic;font-size:20px;text-transform:uppercase;cursor:pointer}
+button:hover{background:#C77085}
+.links{display:flex;gap:22px;font-size:13px}.links a{color:inherit;text-decoration:none;opacity:.75}.links a:hover{opacity:1}
+.in{animation:rise 1.4s cubic-bezier(.2,.7,.2,1) both}
+@keyframes rise{from{opacity:0;transform:translateY(14px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+
+main{min-height:100svh;display:grid;grid-template-columns:1.1fr 1fr}
+.l{grid-column:1}
+.l{display:grid;grid-template-rows:1fr auto;padding:clamp(24px,4vw,56px);gap:32px}
+h1{align-self:center;color:var(--blush);font-size:clamp(56px,10vw,150px)}
+.l footer{display:grid;gap:18px}
+.r{position:relative;overflow:hidden;display:grid;place-items:center;background:linear-gradient(160deg,var(--peach),var(--petal) 45%,var(--blush))}
+.r::before{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 30% 30%,rgba(255,255,255,.6),transparent),radial-gradient(35% 35% at 70% 75%,rgba(199,112,133,.6),transparent);animation:spin 30s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.r .logo{position:relative;width:clamp(180px,22vw,320px);background:var(--paper)}
+@media (max-width:760px){main{grid-template-columns:1fr;grid-template-rows:42vh 1fr}.r{order:-1}.l{grid-template-rows:auto auto;align-content:center}h1{font-size:64px}}
+
+.r{position:fixed;top:0;right:0;bottom:0;width:47.6%;transition:width 1.6s cubic-bezier(.7,0,.2,1);z-index:2}
+.l{position:relative;z-index:1}
+.r .logo{transition:width 1.6s cubic-bezier(.7,0,.2,1)}
+.full{position:fixed;inset:0;z-index:3;display:grid;grid-template-rows:1fr auto;justify-items:center;padding:clamp(24px,4vw,48px);pointer-events:none;opacity:0;transition:opacity 1s ease}
+.full .stack{align-self:center;transform:translateY(calc(-1 * clamp(110px,10vw,170px)));display:grid;justify-items:center;gap:28px;text-align:center}
+.full h2{color:var(--paper);font-size:clamp(22px,2.2vw,30px)}
+.full footer{display:grid;gap:18px;justify-items:center}
+.full input{background:rgba(243,239,240,.25);border-color:var(--paper);color:var(--paper)}
+.full input::placeholder{color:var(--paper);opacity:.8}
+.full button{background:var(--paper);color:var(--blush)}
+.full .links{color:var(--paper)}.full .links a{opacity:.9}
+body.open .r{width:100%}
+body.open .r .logo{width:clamp(260px,40vw,620px)}
+body.open .l{opacity:0;transition:opacity .6s}
+body.open .full{opacity:1;pointer-events:auto;transition-delay:1.2s}
+@media (max-width:760px){.r{left:0;width:auto;height:42vh;bottom:auto;transition:height 1.6s cubic-bezier(.7,0,.2,1)}.l{margin-top:42vh}body.open .r{height:100%;width:auto}}
+
+/* no intro: start full */
+.l{display:none}
+.r,.r .logo{transition:none!important}
+body.open .full{transition:opacity 1.2s ease .3s}
+
+/* form v2: single underline, text button with arrow */
+.full form{width:min(380px,100%);align-items:center;border-bottom:1px solid rgba(243,239,240,.7);padding-bottom:6px;transition:border-color .4s}
+.full form:focus-within{border-color:var(--paper)}
+.full input{background:none;border:0;padding:8px 0;font-size:14px;letter-spacing:.02em}
+.full button{background:none;color:var(--paper);padding:8px 0 8px 16px;font-size:18px;display:flex;gap:10px;align-items:center}
+.full button span{display:inline-block;transition:transform .4s cubic-bezier(.2,.7,.2,1);font-style:normal}
+.full button:hover{background:none}
+.full button:hover span{transform:translateX(6px)}
+</style>
+</head>
+<body class="open">
+<main><section class="l"><h1 class="h in" style="animation-delay:.3s">Coming<br>soon</h1><footer><form class="in" style="animation-delay:.8s" onsubmit="event.preventDefault();location.href='mailto:hello@shevelvina.com?subject=Notify%20me&body='+encodeURIComponent(this[0].value)"><input type="email" required placeholder="Your email" aria-label="Email"><button>Notify me</button></form><nav class="links in" style="animation-delay:1s"><a href="https://instagram.com/shevelvina">Instagram</a><a href="https://tiktok.com/@shevelvina">TikTok</a><a href="mailto:hello@shevelvina.com">hello@shevelvina.com</a></nav></footer></section><section class="r"><div class="logo in"></div></section></main>
+<div class="full"><div class="stack"><h2 class="h">Coming soon</h2></div><footer><form onsubmit="event.preventDefault();location.href='mailto:hello@shevelvina.com?subject=Notify%20me&body='+encodeURIComponent(this[0].value)"><input type="email" required placeholder="Your email" aria-label="Email"><button>Notify me <span>→</span></button></form><nav class="links"><a href="https://instagram.com/shevelvina">Instagram</a><a href="https://tiktok.com/@shevelvina">TikTok</a><a href="mailto:hello@shevelvina.com">hello@shevelvina.com</a></nav></footer></div>
+
+</body>
+</html>
